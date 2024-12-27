@@ -1,41 +1,67 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Calculator App</title>
-  <link rel="stylesheet" href="style4.css">
+  <title>Caesar Cipher</title>
+  <script src="4.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
 </head>
+
 <body>
-  <div class="container">
-    <div class="calculator">
-      <input type="text" placeholder="0" id="output-screen">
-
-      <button onclick="clr()">CL</button>
-      <button onclick="del()">DEL</button>
-      <button onclick="display('%')">%</button>
-      <button onclick="display('/')">/</button>
-
-      <button onclick="display('7')">7</button>
-      <button onclick="display('8')">8</button>
-      <button onclick="display('9')">9</button>
-      <button onclick="display('*')">*</button>
-
-      <button onclick="display('4')">4</button>
-      <button onclick="display('5')">5</button>
-      <button onclick="display('6')">6</button>
-      <button onclick="display('-')">-</button>
-
-      <button onclick="display('1')">1</button>
-      <button onclick="display('2')">2</button>
-      <button onclick="display('3')">3</button>
-      <button onclick="display('+')">+</button>
-
-      <button onclick="display('.')">.</button>
-      <button onclick="display('0')">0</button>
-      <button onclick="calculate()" class="equal">=</button>
+  <div class="container mt-5">
+    <h1 class="text-center">Caesar Cipher</h1>
+    <ul class="nav nav-tabs" id="cipherTabs" role="tablist">
+      <li class="nav-item" role="presentation">
+        <button class="nav-link active" id="encrypt-tab" data-bs-toggle="tab" data-bs-target="#encrypt" type="button" role="tab">Encrypt</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="decrypt-tab" data-bs-toggle="tab" data-bs-target="#decrypt" type="button" role="tab">Decrypt</button>
+      </li>
+    </ul>
+    <div class="tab-content mt-3">
+      <!-- Encrypt Tab -->8
+      <div class="tab-pane fade show active" id="encrypt" role="tabpanel">
+        <form>
+          <div class="mb-3">
+            <label for="plainText" class="form-label">Plain Text:</label>
+            <input type="text" id="plainText" class="form-control">
+          </div>
+          <div class="mb-3">
+            <label for="shiftEncrypt" class="form-label">Shift:</label>
+            <input type="number" id="shiftEncrypt" class="form-control">
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Cipher text:</label>
+            <div id="cipherTextEncrypt" class="alert alert-danger">...</div>
+          </div>
+          <button type="button" class="btn btn-danger" onclick="encrypt()">Encrypt</button>
+        </form>
+      </div>
+      <!-- Decrypt Tab -->
+      <div class="tab-pane fade" id="decrypt" role="tabpanel">
+        <form>
+          <div class="mb-3">
+            <label for="cipherText" class="form-label">Cipher Text:</label>
+            <input type="text" id="cipherText" class="form-control">
+          </div>
+          <div class="mb-3">
+            <label for="shiftDecrypt" class="form-label">Shift:</label>
+            <input type="number" id="shiftDecrypt" class="form-control">
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Plain text:</label>
+            <div id="plainTextDecrypt" class="alert alert-primary">...</div>
+          </div>
+          <button type="button" class="btn btn-primary" onclick="decrypt()">Decrypt</button>
+        </form>
+      </div>
     </div>
   </div>
-  <script src="script3.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+  <script src="4.js"></script>
 </body>
+
 </html>
